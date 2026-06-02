@@ -34,7 +34,7 @@ let
     html {
       -webkit-text-size-adjust: 100%;
       color-scheme: dark;
-      background: #001414;
+      background: #000a0a;
       color: #ffffff;
     }
     body {
