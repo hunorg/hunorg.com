@@ -7,7 +7,7 @@
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
     htnl = {
       url = "github:molybdenumsoftware/htnl";
-      inputs.nixpkgs.follows = "nixpkgs";
+      flake = false;
     };
     flake-utils.url = "github:numtide/flake-utils";
   };
