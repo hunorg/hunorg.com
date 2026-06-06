@@ -29,12 +29,6 @@ let
 
   about = "I am a software developer with a focus on functional programming, particularly in Elm, Haskell, and Nix/NixOS.";
 
-  cow = lib.readFile (
-    runCommand "cow.txt" {
-      nativeBuildInputs = [ cowsay ];
-    } "cowsay -W 40 ${lib.escapeShellArg about} > $out"
-  );
-
   css = ''
     *, *::before, *::after { box-sizing: border-box; }
     html {
@@ -116,7 +110,7 @@ let
       (body [
         (h1 "Hunor Geréd")
 
-        (figure { class = "cow"; } (pre cow))
+        (figure { class = "cow"; } (pre "@COW@"))
 
         (section [
           (h2 "Projects")
@@ -174,8 +168,16 @@ let
       ])
     ]
   );
+
+  bundled = bundle { htmlDocuments."index.html" = page; };
 in
-bundle {
-  name = "hunor-site";
-  htmlDocuments."index.html" = page;
-}
+runCommand "hunor-site" {
+  nativeBuildInputs = [ cowsay ];
+} ''
+  mkdir -p "$out"
+  cp -r ${bundled}/. "$out/"
+  chmod -R u+w "$out"
+  cow=$(cowsay -W 40 ${lib.escapeShellArg about} \
+    | sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g')
+  substituteInPlace "$out/index.html" --replace-fail '@COW@' "$cow"
+''
