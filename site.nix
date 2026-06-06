@@ -3,6 +3,7 @@
   htnl,
   cowsay,
   runCommand,
+  validator-nu,
 }:
 let
   inherit (htnl) bundle document raw;
@@ -43,7 +44,7 @@ let
       line-height: 1.65;
       max-width: 42rem;
       margin: clamp(2rem, 6vw, 4rem) auto;
-      padding: 0 clamp(1rem, 4vw, 1.25rem) max(clamp(2rem, 6vw, 4rem), env(safe-area-inset-bottom));
+      padding: 0 clamp(1rem, 4vw, 1.25rem) clamp(2rem, 6vw, 4rem);
     }
     h1 {
       font-size: clamp(1.35rem, 4vw, 1.6rem);
@@ -172,7 +173,10 @@ let
   bundled = bundle { htmlDocuments."index.html" = page; };
 in
 runCommand "hunor-site" {
-  nativeBuildInputs = [ cowsay ];
+  nativeBuildInputs = [
+    cowsay
+    validator-nu
+  ];
 } ''
   mkdir -p "$out"
   cp -r ${bundled}/. "$out/"
@@ -180,4 +184,5 @@ runCommand "hunor-site" {
   cow=$(cowsay -W 40 ${lib.escapeShellArg about} \
     | sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g')
   substituteInPlace "$out/index.html" --replace-fail '@COW@' "$cow"
+  vnu --Werror "$out/index.html"
 ''
