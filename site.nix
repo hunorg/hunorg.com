@@ -76,6 +76,9 @@ let
       a:has(.icon):hover { background: none; color: inherit; }
       a:has(.icon):hover span { background: #ffffff; color: #000000; }
     }
+    a:active { color: #000000; background: #ffffff; }
+    a:has(.icon):active { background: none; color: inherit; }
+    a:has(.icon):active span { background: #ffffff; color: #000000; }
     .project-title { font-weight: 700; }
     .project-note { font-style: italic; }
     .icon { height: 1em; width: 1em; vertical-align: -0.125em; margin-right: 0.4em; }
