@@ -79,7 +79,7 @@ let
     .project-title { font-weight: 700; }
     .project-note { font-style: italic; }
     .icon { height: 1em; width: 1em; vertical-align: -0.125em; margin-right: 0.4em; }
-    .icon-wide { width: auto; }
+    .icon-wide { width: auto; margin-right: 0; }
     section { margin: 0 0 clamp(1.75rem, 4vw, 2.25rem); }
     .cow { margin: clamp(2rem, 6vw, 3.5rem) 0; text-align: center; }
     .cow pre {
@@ -175,7 +175,7 @@ let
         (footer [
           "Built with "
           (a { href = "https://htnl.molybdenum.software/"; } [
-            (img { src = ./icons/htnl.svg; alt = ""; class = [ "icon" "icon-wide" ]; }) (span "htnl")
+            (img { src = ./icons/htnl.svg; alt = "htnl"; class = [ "icon" "icon-wide" ]; })
           ])
           ", a Nix library for making websites. "
           (a { href = "https://github.com/hunorg/hunorg.com"; } "Source")
