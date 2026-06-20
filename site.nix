@@ -62,7 +62,7 @@ html { lang = "en"; } [
           ))
           " — collaborative Elm package for writing effectful logic as composable steps: state, commands, async channels, and optics without a conventional "
           (code "update")
-          " dispatcher. Built from concepts and code from elm-io and elm-procedure, with thanks to their authors."
+          " dispatcher. Built from concepts and code from elm-io, elm-accessors and elm-procedure, with thanks to their authors."
         ])
         (li [
           (a { href = "https://pointy.cloud/"; } (span { class = "project-title"; } "Pointy Notebook"))
