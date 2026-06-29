@@ -29,7 +29,7 @@ let
     ul
     ;
 
-  about = "I am a software developer with a focus on functional programming, particularly in Elm, Haskell, and Nix/NixOS.";
+  about = "I am a software developer with a focus on functional programming, particularly in Elm, Haskell, and Nix(OS).";
 in
 html { lang = "en"; } [
   (head [
@@ -182,7 +182,7 @@ html { lang = "en"; } [
         | sed \
           -e 's|Elm|<a href="https://elm-lang.org/">Elm</a>|' \
           -e 's|Haskell|<a href="https://www.haskell.org/">Haskell</a>|' \
-          -e 's|Nix/NixOS|<a href="https://nixos.org/">Nix/NixOS</a>|')
+          -e 's|Nix(OS)|<a href="https://nix.dev/">Nix(OS)</a>|')
       substituteInPlace $out/index.html --replace-fail '@COW@' "$cow"
       vnu --Werror $out/index.html
     ''
