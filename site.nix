@@ -177,7 +177,7 @@ html { lang = "en"; } [
       mkdir $out
       cp -r ${bundle}/* $out
       chmod u+w $out/index.html
-      cow=$(cowsay -W 40 ${lib.escapeShellArg about} \
+      cow=$(cowsay -f tux -W 40 ${lib.escapeShellArg about} \
         | sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g' \
         | sed \
           -e 's|Elm|<a href="https://elm-lang.org/">Elm</a>|' \
