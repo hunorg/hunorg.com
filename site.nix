@@ -69,12 +69,6 @@ html { lang = "en"; } [
           (span { class = "project-note"; } " — collaborator since the start.")
           " Keeps research computation tidy: reusable analyses as project pages with forms, live runs, browsable outputs, and commit-pinned share links."
         ])
-        (li [
-          (a { href = "https://terminal-top.eket.org/"; } (span { class = "project-title"; } "terminal-top"))
-          " — A Nix-driven terminal dashboard for live, structured data. Define a source URL and a panel layout in a "
-          (code ".nix")
-          " file and it renders in the terminal — no app, no account, no cloud."
-        ])
       ])
     ])
 
