@@ -76,16 +76,6 @@ html { lang = "en"; } [
       (h2 "Links")
       (ul [
         (li (
-          a { href = "https://www.linkedin.com/in/hunorgered/"; } [
-            (img {
-              src = ./icons/linkedin.svg;
-              alt = "";
-              class = "icon";
-            })
-            (span "LinkedIn")
-          ]
-        ))
-        (li (
           a { href = "https://github.com/hunorg"; } [
             (img {
               src = ./icons/github.svg;
