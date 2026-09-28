@@ -164,6 +164,7 @@ html { lang = "en"; } [
       cow=$(cowsay -f tux -W 40 ${lib.escapeShellArg about} \
         | sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g' \
         | sed \
+          -e 's|o_o|<span>o</span>_<span>o</span>|' \
           -e 's|Elm|<a href="https://elm-lang.org/">Elm</a>|' \
           -e 's|Haskell|<a href="https://www.haskell.org/">Haskell</a>|' \
           -e 's|Nix(OS)|<a href="https://nix.dev/">Nix(OS)</a>|')

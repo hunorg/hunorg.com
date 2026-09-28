@@ -41,6 +41,8 @@ code { font-family: inherit; font-size: 0.95em; }
   a:hover { color: #000000; background: #ffffff; }
   a:has(.icon):hover { background: none; color: inherit; }
   a:has(.icon):hover span { background: #ffffff; color: #000000; }
+  .cow:has(a:hover, :focus-visible) span { position: relative; top: -0.15em; }
+  .cow:has(~ * :is(a:hover, :focus-visible)) span { position: relative; top: 0.15em; }
 }
 a:active { color: #000000; background: #ffffff; }
 a:has(.icon):active { background: none; color: inherit; }
